@@ -55,3 +55,23 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# IDE settings
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.sln.iml
+
+# Local configuration and secrets
+.env.*
+!.env.example
+secrets.json
+appsettings.*.local.json
+
+# OS-generated files
+.DS_Store
+Thumbs.db
