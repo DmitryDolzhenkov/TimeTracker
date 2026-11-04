@@ -1,0 +1,14 @@
+<Window x:Class="TimeTracker.App.LogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Time Tracker: лог событий" Width="640" Height="420">
+    <ListView x:Name="Entries" AutomationProperties.AutomationId="LogEntries" Margin="8">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Время" Width="150" DisplayMemberBinding="{Binding Time}" />
+                <GridViewColumn Header="Событие" Width="170" DisplayMemberBinding="{Binding Title}" />
+                <GridViewColumn Header="Подробности" Width="280" DisplayMemberBinding="{Binding Details}" />
+            </GridView>
+        </ListView.View>
+    </ListView>
+</Window>

@@ -1,0 +1,42 @@
+<Window x:Class="TimeTracker.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Time Tracker" Width="360" SizeToContent="Height" ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="16">
+        <TextBlock x:Name="StateText" AutomationProperties.AutomationId="StateText" FontSize="16" />
+        <TextBlock x:Name="DurationText" AutomationProperties.AutomationId="DurationText"
+                   FontSize="40" FontWeight="SemiBold" Margin="0,4,0,0" />
+        <TextBlock x:Name="WarningText" Foreground="#B00020" TextWrapping="Wrap" Visibility="Collapsed"
+                   Text="Корректировки превышают учтённое время, итог ограничен нулём." />
+
+        <Button x:Name="StartStopButton" AutomationProperties.AutomationId="StartStopButton"
+                Margin="0,12,0,0" Padding="8" FontSize="14" Click="OnStartStopClick" />
+
+        <TextBlock Text="Корректировка за сегодня" Margin="0,16,0,4" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="32" />
+                <ColumnDefinition Width="32" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="MinutesBox" AutomationProperties.AutomationId="MinutesBox"
+                     MaxLength="4" VerticalContentAlignment="Center" Padding="2" />
+            <TextBlock Grid.Column="1" Text="мин" VerticalAlignment="Center" Margin="4,0,8,0" />
+            <TextBox x:Name="CommentBox" Grid.Column="2" AutomationProperties.AutomationId="CommentBox"
+                     VerticalContentAlignment="Center" Padding="2"
+                     ToolTip="Комментарий (необязательно)" />
+            <Button Grid.Column="3" Content="+" Margin="4,0,0,0" Click="OnAddClick"
+                    AutomationProperties.AutomationId="AddButton" />
+            <Button Grid.Column="4" Content="−" Margin="4,0,0,0" Click="OnSubtractClick"
+                    AutomationProperties.AutomationId="SubtractButton" />
+        </Grid>
+        <TextBlock x:Name="AdjustError" AutomationProperties.AutomationId="AdjustError"
+                   Foreground="#B00020" TextWrapping="Wrap" Margin="0,4,0,0" Visibility="Collapsed" />
+
+        <Button Content="Лог событий" Margin="0,16,0,0" Padding="6" Click="OnLogClick"
+                AutomationProperties.AutomationId="LogButton" />
+    </StackPanel>
+</Window>
